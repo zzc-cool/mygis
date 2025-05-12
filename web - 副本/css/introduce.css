@@ -6,11 +6,11 @@
 
 body{
     height: 100vh;
-    display: flex;
     justify-items: center;
     align-items: center;
     justify-content: center;
     background: linear-gradient(200deg,#517fa4,#0f203d);
+    
 
 }
 .mainbox{
