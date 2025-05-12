@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人主页</title>
+    <link rel="stylesheet" href="style.css"> <!-- 引入 CSS 文件 -->
+</head>
+<body>
+    <header>
+        <h1>欢迎来到我的个人主页</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">关于我</a></li>
+                <li><a href="#projects">项目</a></li>
+                <li><a href="#contact">联系方式</a></li>
+            </ul>
+        </nav>
+    </header>
+ 
+    <section id="about">
+        <h2>关于我</h2>
+        <p>你好，我是谢李韬，来自武汉大学资源与环境科学学院2022级本科生。欢迎浏览我的个人网页！</p>
+        <button onclick="showMore()" class="pdf-button">📄 查看简历</button>
+        
+        <!-- 新增PDF展示区域 -->
+        <div id="more" style="display: none; margin-top: 20px; text-align: center;">
+            <!-- 网页端优先显示 -->
+            <iframe id="pdfViewer" 
+                    src="简历 .pdf" 
+                    width="100%" 
+                    height="600px" 
+                    style="border: none; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+            </iframe>
+            
+            <!-- 移动端备用下载链接 -->
+            <div class="mobile-download" style="display: none; margin-top: 15px;">
+                <a href="resume.pdf" download="谢李韬-简历.pdf" class="download-link">
+                    📥 下载PDF简历（适配移动端）
+                </a>
+            </div>
+        </div>
+    </section>
+    
+
+    <script>
+        function showMore() {
+            const moreDiv = document.getElementById('more');
+            const mobileLink = document.querySelector('.mobile-download');
+            
+            if (moreDiv.style.display === 'none') {
+                moreDiv.style.display = 'block';
+                // 移动端显示下载按钮
+                if (window.innerWidth <= 768) {
+                    mobileLink.style.display = 'block';
+                }
+            } else {
+                moreDiv.style.display = 'none';
+                mobileLink.style.display = 'none';
+            }
+        }
+    </script>
+
+ 
+    <section id="projects">
+        <h2>我的项目</h2>
+        <p>这里是我参与过的一些项目：</p>
+        <ul>
+            <li>项目1：2024年超图杯分析组全国二等奖</li>
+            <li>项目2：2024年全国大学生数学建模大赛湖北赛区二等奖</li>
+        </ul>
+    </section>
+ 
+    <section id="contact">
+        <h2>📩 联系方式</h2>
+        <div class="contact-info">
+            <p class="contact-item">
+                <img src="邮箱电子邮箱.png" alt="Email" width="30" class="contact-icon">
+                3147363486@qq.com
+            </p>
+            <p class="contact-item">
+                <img src="手机.png" alt="Phone" width="30" class="contact-icon">
+                18573186465
+            </p>
+        </div>
+    </section>
+ 
+    <footer>
+        <p>&copy; 2025 [你的名字]。所有权利保留。</p>
+    </footer>
+</body>
+</html>
