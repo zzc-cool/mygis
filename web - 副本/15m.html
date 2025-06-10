@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>title</title>
+</head>
+<style>
+    .divzhu{
+        height: 781px;
+        width: 100%;
+        display: flex;
+        background-color: #E0F5E6;
+
+    }
+    .div1{
+        width: 63%;
+        height: 100%;
+        background-image: url("http://47.110.248.137:8080/mygis/15分钟.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-left: 7%;
+        position: relative;
+        aspect-ratio:2893/3252;
+
+    }
+    .div2{
+    width: 25%;
+    height: 594px;
+    background-color: #E0F5E6;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    color: #333;
+    margin-right: 5%;
+    margin-top: 91px;
+    position: absolute;
+    left: 67%;
+    transition: 0.5s;
+    opacity: 0;
+    border-radius: 16px; /* 圆角边框，更柔和 */
+    padding: 20px; /* 增加整体内边距，防止文字贴边 */
+    box-sizing: border-box;
+    }
+    .div2 h1 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #2C6B46;
+    font-weight: bold;
+    margin-top: 50px;
+}
+
+/* p 设置左右留白和行距 */
+   .div2 p {
+    text-indent: 2em;
+    line-height: 1.8;
+    font-size: 16px;
+    padding: 0 10px;
+    text-align: justify;
+    }
+    .div3{
+        background-image: url(http://47.110.248.137:8080/mygis/边框.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        width: 60px;
+        height: 60px;
+        position: absolute;
+        margin-top: 13px;
+    }
+    .div4{
+        background-image: url(http://47.110.248.137:8080/mygis/边框.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        width: 60px;
+        height: 60px;
+        position: absolute;
+        transform: rotate(180deg);
+        bottom: 14px;
+        right: 10px;
+    }
+    .div1 div{
+        cursor: pointer;
+       
+    }
+    .tooltip-box {
+            position: absolute;
+            background: #333;
+            color: #fff;
+            padding: 5px 10px;
+            font-size: 14px;
+            border-radius: 5px;
+            white-space: nowrap;
+            z-index: 100;
+            display: none;
+        }
+
+        .div1 div:hover::after {
+            content: attr(data-title);
+            position: absolute;
+            left: 100%;
+            top: 0;
+            background: rgba(0, 0, 0, 0.75);
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            white-space: nowrap;
+            font-size: 16px;
+            transform: translateX(10px);
+            z-index: 100;
+        }
+</style>
+<body>
+    <div class="divzhu">
+    <div class="div1">
+            <!--中学-->
+            <div id="f1" onclick="change1()" data-title="中学" style="width: 76px;height: 78px;position: absolute;top: 156px;left: 311px;"></div>
+            <!--医疗卫生-->
+            <div id="f2" onclick="change2()" data-title="社区医疗卫生" style="width: 84px;height: 85px;position: absolute;left: 83px;top: 214px;"></div>
+            <!--游乐园-->
+            <div id="f3" onclick="change3()" data-title="游乐园" style="width: 79px;height: 79px;position: absolute;left: 365px;top: 327px;"></div>
+            <!--幼儿园-->
+            <div id="f4" onclick="change4()" data-title="幼儿园" style="width: 61px;height: 62px;position: absolute;left: 302px;top: 277px;"></div>
+            <!--菜场-->
+            <div id="f5" onclick="change5()" data-title="菜场" style="width: 82px;height: 83px;position: absolute;left: 148px;top: 378px;"></div>
+            <!--小型超市-->
+            <div id="f6" onclick="change6()" data-title="小型超市" style="width: 78px;height: 77px;position: absolute;left: 202px;top: 300px;"></div>
+            <!--小学-->
+            <div id="f7" onclick="change7()" data-title="小学" style="width: 75px;height: 75px;position: absolute;left: 378px;top: 226px;"></div>
+            <!--大型商超-->
+            <div id="f8" onclick="change8()" data-title="大型商超" style="width: 74px;height: 74px;position: absolute;left: 457px;top: 543px;"></div>
+            <!--多功能体育中心-->
+            <div id="f9" onclick="change9()" data-title="多功能综合体育中心" style="width: 98px;height: 80px;position: absolute;left: 359px;top: 597px;"></div>
+            <!--社区行政设施-->
+            <div id="f10" onclick="change10()" data-title="社区行政设施" style="width: 81px;height: 81px;position: absolute;left: 517px;top: 434px;"></div>
+            <!--公园-->
+            <div id="f11" onclick="change11()" data-title="公园" style="width: 68px;height: 51px;position: absolute;left: 431px;top: 489px;"></div>
+            <!--养老设施-->
+            <div id="f12" onclick="change12()" data-title="养老设施" style="width: 69px;height: 69px;position: absolute;left: 309px;top: 495px;"></div>
+            <!--健身房-->
+            <div id="f13" onclick="change13()" data-title="健身房" style="width: 73px;height: 72px;position: absolute;left: 374px;top: 417px;"></div>
+            <!--青少年文化活动中心-->
+            <div id="f14" onclick="change14()" data-title="青少年文化活动中心" style="width: 69px;height: 70px;position: absolute;left: 447px;top: 289px;"></div>
+
+    </div>
+    <div class="div2" id="jieshi1">
+        <div class="div3"></div>
+         <div class="div4"></div>
+        <h1>中学</h1>
+        <p>服务于 12 - 18 岁青少年，承担着为高等教育输送人才的重要任务。中学阶段课程难度增加，学业压力较大，近距离的中学能让学生减少通勤疲劳，将更多精力投入学习</p>
+    </div>
+    <div class="div2" id="jieshi2">
+        <div class="div3"></div>
+         <div class="div4"></div>
+        <h1>社区医疗卫生</h1>
+        <p>社区医疗卫生机构作为居民健康的 “守门人”，主要承担基础医疗和公共卫生服务。其功能涵盖日常疾病诊治、慢性病管理、预防接种、健康档案建立等。对于老年人、儿童等群体，可提供定期体检、康复护理等服务；对于普通居民，能解决感冒、发烧等常见病症的诊疗需求，减少前往大医院排队等待的时间和精力成本。此外，社区卫生服务中心还会开展健康知识讲座、义诊等活动，提升居民健康意识，构建起基层医疗保障的第一道防线。</p>
+    </div>
+    <div class="div2" id="jieshi3">
+        <div class="div3"></div>
+         <div class="div4"></div>
+        <h1>游乐园</h1>
+        <p>游乐园主要为儿童和青少年提供娱乐休闲空间，设有滑梯、秋千、攀爬架等游乐设施。在游乐园中，孩子们可以尽情释放天性，锻炼身体协调性和创造力，同时促进同伴之间的互动与交流。对于家长而言，游乐园是陪伴孩子、增进亲子关系的好去处，也是社区儿童社交活动的重要场所</p>
+    </div>
+    <div class="div2" id="jieshi4">
+        <div class="div3"></div>
+         <div class="div4"></div>
+        <h1>幼儿园</h1>
+        <p>主要面向 3 - 6 岁儿童，提供启蒙教育和托管服务。除了基础的语言、艺术、科学课程外，还注重培养孩子的生活自理能力和社交能力。幼儿园布局在生活圈内，方便家长接送，减少孩子上下学途中的时间和安全风险，同时也便于家长随时了解孩子在园情况。</p>
+    </div>
+    <div class="div2" id="jieshi5">
+        <div class="div3"></div>
+         <div class="div4"></div>
+        <h1>菜场</h1>
+        <p>作为居民采购新鲜食材的主要场所，菜场汇聚了各类蔬菜、水果、肉类、水产等农产品。相较于大型商超，菜场的菜品更加丰富多样，且价格相对亲民，还能满足居民对食材新鲜度和品质的要求。同时，菜场也是邻里交流的重要场所，营造出浓厚的生活气息</p>
+    </div>
+    <div class="div2" id="jieshi6">
+        <div class="div3"></div>
+         <div class="div4"></div>
+        <h1>小型超市</h1>
+        <p>以满足居民日常即时消费需求为主，提供食品、日用品、文具等商品。其营业时间灵活，通常靠近居民小区，居民可以随时购买到生活必需品，如零食、调味品、卫生纸等。小型超市还可能提供代收快递、代缴水电费等便民服务，进一步提升居民生活的便利性。</p>
+    </div>
+    <div class="div2" id="jieshi7">
+        <div class="div3"></div>
+         <div class="div4"></div>
+        <h1>小学</h1>
+        <p>针对 6 - 12 岁儿童，是基础教育的重要阶段。小学不仅传授语文、数学、英语等学科知识，还通过各类社团活动、实践课程培养学生的综合素质。家门口的小学能让孩子拥有充足的休息时间，减轻学业压力，同时方便家长参与学校活动，实现家校共育。</p>
+    </div>
+    <div class="div2" id="jieshi8">
+        <div class="div3"></div>
+         <div class="div4"></div>
+        <h1>大型商超</h1>
+        <p>大型商超经营面积大、商品种类齐全，涵盖食品、服装、家电、家居等多个品类，能够满足居民一站式购物需求。相较于小型超市，大型商超在商品价格、品牌选择上更具优势，且会定期举办促销活动。同时，大型商超还会配套餐饮、娱乐等业态，如电影院、美食广场等，成为居民购物、休闲、社交的综合性场所。</p>
+    </div>
+    <div class="div2" id="jieshi9">
+       <div class="div3"></div>
+         <div class="div4"></div>
+        <h1>多功能综合体育中心</h1>
+        <p>多功能综合体育中心具备多种运动功能，设有篮球场、羽毛球场、乒乓球场、游泳馆等专业运动场地。这里不仅能满足居民日常健身锻炼的需求，还可以举办各类体育赛事、健身培训活动，提升居民的体育参与度和竞技水平。此外，体育中心还能促进社区体育文化的发展，增强居民的体质和团队协作精神。</p>
+    </div>
+    <div class="div2" id="jieshi10">
+        <div class="div3"></div>
+         <div class="div4"></div>
+        <h1>社区行政设施</h1>
+        <p>社区行政设施如社区居委会、政务服务中心等，主要承担社区管理和公共服务职能。居民可以在这里办理户籍、社保、民政等各类政务事项，享受政策咨询、纠纷调解等服务。社区行政设施是政府与居民沟通的桥梁，通过便捷高效的服务，提升社区治理水平，增强居民对社区的归属感和认同感。</p>
+    </div>
+    <div class="div2" id="jieshi11">
+        <div class="div3"></div>
+         <div class="div4"></div>
+        <h1>公园</h1>
+        <p>公园是居民亲近自然、放松身心的公共空间，设有绿化景观、休闲步道、休憩座椅等设施。居民可以在公园内散步、慢跑、打太极，享受清新空气和优美环境；也可以在闲暇时光与家人朋友野餐、聚会，增进情感交流。公园还能调节社区微气候，改善生态环境，是提升居民生活品质和幸福感的重要场所。</p>
+    </div>
+    <div class="div2" id="jieshi12">
+        <div class="div3"></div>
+         <div class="div4"></div>
+        <h1>养老设施</h1>
+        <p>养老设施包括养老院、日间照料中心等，为老年人提供生活照料、康复护理、精神慰藉等服务。养老院适合失能、半失能或生活难以自理的老人，提供全天候的专业护理；日间照料中心则主要服务于健康活力老人，他们白天可以在中心参加文化娱乐活动、享受餐饮服务，晚上回到家中与家人团聚。养老设施的存在，让老年人在熟悉的社区环境中安享晚年，同时也减轻了家庭养老的压力。</p>
+    </div>
+    <div class="div2" id="jieshi13">
+        <div class="div3"></div>
+         <div class="div4"></div>
+        <h1>健身房</h1>
+        <p>健身房为居民提供专业的健身场所和设备，配备跑步机、健身器械、瑜伽室等，满足不同年龄段、不同健身需求的居民。无论是追求塑形减脂的年轻人，还是希望增强体质的中老年人，都能在健身房中找到适合自己的锻炼方式。此外，健身房还会提供专业的健身指导课程和团体操课，营造良好的健身氛围，帮助居民养成健康的生活习惯。</p>
+    </div>
+    <div class="div2" id="jieshi14">
+        <div class="div3"></div>
+         <div class="div4"></div>
+        <h1>青少年文化活动中心</h1>
+        <p>青少年文化活动中心聚焦于青少年的文化素养提升和兴趣培养。这里会开设书法、绘画、舞蹈、音乐等艺术培训课程，以及科普讲座、读书会等文化活动。通过多样化的文化活动，丰富青少年课余生活，激发他们的创造力和想象力，帮助青少年在艺术、科学等领域探索自我，培养终身学习的兴趣和能力。</p>
+    </div>
+
+    </div>
+   <script>
+    var elment1=document.getElementById("jieshi1")
+    var elment2=document.getElementById("jieshi2")
+    var elment3=document.getElementById("jieshi3")
+    var elment4=document.getElementById("jieshi4")
+    var elment5=document.getElementById("jieshi5")
+    var elment6=document.getElementById("jieshi6")
+    var elment7=document.getElementById("jieshi7")
+    var elment8=document.getElementById("jieshi8")
+    var elment9=document.getElementById("jieshi9")
+    var elment10=document.getElementById("jieshi10")
+    var elment11=document.getElementById("jieshi11")
+    var elment12=document.getElementById("jieshi12")
+    var elment13=document.getElementById("jieshi13")
+    var elment14=document.getElementById("jieshi14")
+    function change1(){
+        elment1.style.opacity=1;
+        elment2.style.opacity=0;
+        elment3.style.opacity=0;
+        elment4.style.opacity=0;
+        elment5.style.opacity=0;
+        elment6.style.opacity=0;
+        elment7.style.opacity=0;
+        elment8.style.opacity=0;
+        elment9.style.opacity=0;
+        elment10.style.opacity=0;
+        elment11.style.opacity=0;
+        elment12.style.opacity=0;
+        elment13.style.opacity=0;
+        elment14.style.opacity=0;
+    }
+    function change2(){
+        elment1.style.opacity=0;
+        elment2.style.opacity=1;
+        elment3.style.opacity=0;
+        elment4.style.opacity=0;
+        elment5.style.opacity=0;
+        elment6.style.opacity=0;
+        elment7.style.opacity=0;
+        elment8.style.opacity=0;
+        elment9.style.opacity=0;
+        elment10.style.opacity=0;
+        elment11.style.opacity=0;
+        elment12.style.opacity=0;
+        elment13.style.opacity=0;
+        elment14.style.opacity=0;
+    }function change3(){
+        elment1.style.opacity=0;
+        elment2.style.opacity=0;
+        elment3.style.opacity=1;
+        elment4.style.opacity=0;
+        elment5.style.opacity=0;
+        elment6.style.opacity=0;
+        elment7.style.opacity=0;
+        elment8.style.opacity=0;
+        elment9.style.opacity=0;
+        elment10.style.opacity=0;
+        elment11.style.opacity=0;
+        elment12.style.opacity=0;
+        elment13.style.opacity=0;
+        elment14.style.opacity=0;
+    }function change4(){
+        elment1.style.opacity=0;
+        elment2.style.opacity=0;
+        elment3.style.opacity=0;
+        elment4.style.opacity=1;
+        elment5.style.opacity=0;
+        elment6.style.opacity=0;
+        elment7.style.opacity=0;
+        elment8.style.opacity=0;
+        elment9.style.opacity=0;
+        elment10.style.opacity=0;
+        elment11.style.opacity=0;
+        elment12.style.opacity=0;
+        elment13.style.opacity=0;
+        elment14.style.opacity=0;
+    }function change5(){
+        elment1.style.opacity=0;
+        elment2.style.opacity=0;
+        elment3.style.opacity=0;
+        elment4.style.opacity=0;
+        elment5.style.opacity=1;
+        elment6.style.opacity=0;
+        elment7.style.opacity=0;
+        elment8.style.opacity=0;
+        elment9.style.opacity=0;
+        elment10.style.opacity=0;
+        elment11.style.opacity=0;
+        elment12.style.opacity=0;
+        elment13.style.opacity=0;
+        elment14.style.opacity=0;
+    }function change6(){
+        elment1.style.opacity=0;
+        elment2.style.opacity=0;
+        elment3.style.opacity=0;
+        elment4.style.opacity=0;
+        elment5.style.opacity=0;
+        elment6.style.opacity=1;
+        elment7.style.opacity=0;
+        elment8.style.opacity=0;
+        elment9.style.opacity=0;
+        elment10.style.opacity=0;
+        elment11.style.opacity=0;
+        elment12.style.opacity=0;
+        elment13.style.opacity=0;
+        elment14.style.opacity=0;
+    }function change7(){
+        elment1.style.opacity=0;
+        elment2.style.opacity=0;
+        elment3.style.opacity=0;
+        elment4.style.opacity=0;
+        elment5.style.opacity=0;
+        elment6.style.opacity=0;
+        elment7.style.opacity=1;
+        elment8.style.opacity=0;
+        elment9.style.opacity=0;
+        elment10.style.opacity=0;
+        elment11.style.opacity=0;
+        elment12.style.opacity=0;
+        elment13.style.opacity=0;
+        elment14.style.opacity=0;
+    }function change8(){
+        elment1.style.opacity=0;
+        elment2.style.opacity=0;
+        elment3.style.opacity=0;
+        elment4.style.opacity=0;
+        elment5.style.opacity=0;
+        elment6.style.opacity=0;
+        elment7.style.opacity=0;
+        elment8.style.opacity=1;
+        elment9.style.opacity=0;
+        elment10.style.opacity=0;
+        elment11.style.opacity=0;
+        elment12.style.opacity=0;
+        elment13.style.opacity=0;
+        elment14.style.opacity=0;
+    }function change9(){
+        elment1.style.opacity=0;
+        elment2.style.opacity=0;
+        elment3.style.opacity=0;
+        elment4.style.opacity=0;
+        elment5.style.opacity=0;
+        elment6.style.opacity=0;
+        elment7.style.opacity=0;
+        elment8.style.opacity=0;
+        elment9.style.opacity=1;
+        elment10.style.opacity=0;
+        elment11.style.opacity=0;
+        elment12.style.opacity=0;
+        elment13.style.opacity=0;
+        elment14.style.opacity=0;
+    }function change10(){
+        elment1.style.opacity=0;
+        elment2.style.opacity=0;
+        elment3.style.opacity=0;
+        elment4.style.opacity=0;
+        elment5.style.opacity=0;
+        elment6.style.opacity=0;
+        elment7.style.opacity=0;
+        elment8.style.opacity=0;
+        elment9.style.opacity=0;
+        elment10.style.opacity=1;
+        elment11.style.opacity=0;
+        elment12.style.opacity=0;
+        elment13.style.opacity=0;
+        elment14.style.opacity=0;
+    }function change11(){
+        elment1.style.opacity=0;
+        elment2.style.opacity=0;
+        elment3.style.opacity=0;
+        elment4.style.opacity=0;
+        elment5.style.opacity=0;
+        elment6.style.opacity=0;
+        elment7.style.opacity=0;
+        elment8.style.opacity=0;
+        elment9.style.opacity=0;
+        elment10.style.opacity=0;
+        elment11.style.opacity=1;
+        elment12.style.opacity=0;
+        elment13.style.opacity=0;
+        elment14.style.opacity=0;
+    }function change12(){
+        elment1.style.opacity=0;
+        elment2.style.opacity=0;
+        elment3.style.opacity=0;
+        elment4.style.opacity=0;
+        elment5.style.opacity=0;
+        elment6.style.opacity=0;
+        elment7.style.opacity=0;
+        elment8.style.opacity=0;
+        elment9.style.opacity=0;
+        elment10.style.opacity=0;
+        elment11.style.opacity=0;
+        elment12.style.opacity=1;
+        elment13.style.opacity=0;
+        elment14.style.opacity=0;
+    }
+    function change13(){
+        elment1.style.opacity=0;
+        elment2.style.opacity=0;
+        elment3.style.opacity=0;
+        elment4.style.opacity=0;
+        elment5.style.opacity=0;
+        elment6.style.opacity=0;
+        elment7.style.opacity=0;
+        elment8.style.opacity=0;
+        elment9.style.opacity=0;
+        elment10.style.opacity=0;
+        elment11.style.opacity=0;
+        elment12.style.opacity=0;
+        elment13.style.opacity=1;
+        elment14.style.opacity=0;
+    }
+    function change14(){
+        elment1.style.opacity=0;
+        elment2.style.opacity=0;
+        elment3.style.opacity=0;
+        elment4.style.opacity=0;
+        elment5.style.opacity=0;
+        elment6.style.opacity=0;
+        elment7.style.opacity=0;
+        elment8.style.opacity=0;
+        elment9.style.opacity=0;
+        elment10.style.opacity=0;
+        elment11.style.opacity=0;
+        elment12.style.opacity=0;
+        elment13.style.opacity=0;
+        elment14.style.opacity=1;
+    }
+   </script>
+    
+</body>
+</html>
